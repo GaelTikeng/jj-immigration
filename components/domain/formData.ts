@@ -9,5 +9,6 @@ export type FormData = {
   currentCountry: string,
   email: string,
   telephone: string,
-  detail: string
+  detail: string,
+  programme: string
 }

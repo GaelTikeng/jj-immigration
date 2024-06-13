@@ -9,7 +9,7 @@ type Props = {
 export default function InputCheckBox({value, label, onChange}: Props) {
   return (
     <div className="flex gap-2">
-      <input type="checkbox" name="Programme intereser" value={value} onChange={onChange} />
+      <input type="checkbox" name="programme" value={value} onChange={onChange} />
       <label>{label}</label>
     </div>
   );

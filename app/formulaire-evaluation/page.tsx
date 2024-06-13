@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import logo from "../../../public/logo.jpg";
 import Button from "@/components/atoms/button";
 import Steps from "@/components/molecules/steps";
 import StepOne from "@/components/molecules/stepOne";
@@ -9,9 +8,11 @@ import StepTwo from "@/components/molecules/stepTwo";
 import StepThree from "@/components/molecules/stepThree";
 import { useEdgeStore } from "@/lib/edgestore";
 import { sendEmail } from "@/utiles/sendEmail";
-// import { FormData } from "@/domain/formData";
 import { FormData } from "@/components/domain/formData";
 import useFileStore from "../stores/fileStore";
+import Loader from "@/components/atoms/loader";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type Props = {};
 
@@ -25,15 +26,19 @@ export const salutaionOptions = [
 
 export default function FormulaireEvaluation({}: Props) {
   const { file, setFile } = useFileStore();
-  const curStep = +(localStorage.getItem("currentStep") as string);
+  const curStep = +(localStorage.getItem("currentStep") as string) || 1;
   const [currentStep, setCurrentStep] = useState<number>(curStep);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { edgestore } = useEdgeStore();
+  const [isLoading, setIsLoading] = useState<Boolean>(false);
+
+  const router = useRouter()
 
   const handleSubmit = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
+    setIsLoading((prev) => !prev);
     let uploadedCv;
     const formData: FormData = JSON.parse(
       (localStorage.getItem("formData") as string) || "{}"
@@ -68,7 +73,7 @@ export default function FormulaireEvaluation({}: Props) {
         country: formData.country,
         currentCountry: formData.currentCountry,
         telephone: formData.telephone,
-        programme: formData.telephone,
+        programme: formData.programme,
         profession: profession,
         etude: niveauetude,
         details: formData.detail,
@@ -79,19 +84,39 @@ export default function FormulaireEvaluation({}: Props) {
       })
         .then((res) => {
           console.log("response from email sent", res);
+          toast.success("Formulaire envoyé", {
+            position: "top-right",
+            theme: "dark",
+            hideProgressBar: true,
+            autoClose: 2000,
+          });
         })
         .catch((err) => {
           console.log("this is error", err);
         });
-      localStorage.setItem('currentStep', '1')
+      localStorage.setItem("currentStep", "1");
+      setIsLoading((prev) => !prev);
+      localStorage.removeItem('formData')
+      localStorage.removeItem('currentStep')
+      localStorage.removeItem('profession')
+      localStorage.removeItem('cvFile')
+      localStorage.removeItem('niveauEtude')
+      localStorage.removeItem('salutation')
+      router.push("/")
     }
   };
 
   return (
-    <main className="">
+    <main style={{background: 'url(assets/images/shape/shape-2.png)'}}>
       <div className=" w-[95%] md:w-[70%] mx-auto mt-8">
         <div className="flex justify-center ">
-          <Image src="/assets/images/logo-jj.jpg" alt="logo" height={100} width={100} />
+          <Image
+            src="/assets/images/logo-jj.jpg"
+            alt="logo"
+            height={100}
+            width={100}
+            loading="lazy"
+          />
         </div>
         <div className="flex justify-between pt-8 pb-4">
           <h3 className="w-1/2">INFORMATIONS GENERALES</h3>
@@ -105,7 +130,7 @@ export default function FormulaireEvaluation({}: Props) {
         ) : currentStep == 2 ? (
           <StepTwo />
         ) : (
-          <StepThree/>
+          <StepThree />
         )}
         <div className="flex justify-between mt-6">
           <Button
@@ -124,10 +149,10 @@ export default function FormulaireEvaluation({}: Props) {
           <p className="flex-1"></p>
           {currentStep === 3 ? (
             <button
-              className="bg-[#25a9e3] text-white py-1 px-3 active:translate-y-1 hover:cursor-pointer rounded"
+              className={isLoading ? 'hover:cursor-not-allowed px-10 bg-[#25aae386] rounded text-white' : "bg-[#25a9e3] text-white py-1 px-3 active:translate-y-1 hover:cursor-pointer rounded"}
               onClick={(e) => handleSubmit(e)}
             >
-              Submit
+              {isLoading ? <Loader /> : <span>Submit</span>}
             </button>
           ) : (
             <Button

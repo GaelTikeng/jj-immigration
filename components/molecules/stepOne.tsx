@@ -23,6 +23,7 @@ export default function StepOne({}: Props) {
   });
 
   const [formData, setFormData] = useState<FormData>({
+    programme: localData.programme || '',
     nom: localData?.nom || "",
     telephone: localData?.telephone || "",
     prenom: localData?.prenom || "",

@@ -10,6 +10,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { heebo, maven_pro } from "@/lib/font";
 import { EdgeStoreProvider } from "@/lib/edgestore";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${maven_pro.variable} ${heebo.variable}`}>
       <body>
+        <ToastContainer />
         <EdgeStoreProvider>{children}</EdgeStoreProvider>
       </body>
     </html>
