@@ -20,7 +20,7 @@ export default function Header1({
             <div className="top-inner">
               <div className="top-left">
                 <ul className="info clearfix">
-                  <li>
+                  <li className="inline-block">
                     <i className="icon-1"></i>
                     <Link href="mailto:jjinternationalservcice@gmail.com">
                     jjinternationalservcice@gmail.com

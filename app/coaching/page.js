@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import TestmonialSlider from "@/components/slider/TestmonialSlider";
-import Layout from "@/components/layout/Layout";
+import TestmonialSlider from "../../components/slider/TestmonialSlider";
+import Layout from "../../components/layout/Layout";
 
 import { useState } from "react";
 export default function Home() {

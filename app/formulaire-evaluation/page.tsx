@@ -120,7 +120,7 @@ export default function FormulaireEvaluation({}: Props) {
         </div>
         <div className="flex justify-between pt-8 pb-4">
           <h3 className="w-1/2">INFORMATIONS GENERALES</h3>
-          <p className="text-red-500 text-center md:text-right text-sm w-1/2">
+          <p className="text-[#f61626] text-center md:text-right text-sm w-1/2">
             Veillez répondre a TOUTES les questions
           </p>
         </div>

@@ -3,13 +3,12 @@ import "../public/assets/css/font-awesome-all.css";
 import "../public/assets/css/bootstrap.css";
 import "../public/assets/css/style.css";
 import "swiper/css";
-// import "swiper/css/navigation"
+import "swiper/css/navigation"
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { maven_pro, heebo } from "../lib/font";
-// import { EdgeStoreProvider } from "@/lib/edgestore";
 import {EdgeStoreProvider} from "../lib/edgestore"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
