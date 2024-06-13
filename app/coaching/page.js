@@ -5,7 +5,7 @@ import Layout from "../../components/layout/Layout";
 
 import { useState } from "react";
 export default function Home() {
-  const [activeIndex, setActiveIndex] = useState(4);
+  const [activeIndex, setActiveIndex] = useState(4)
   const handleOnClick = (index) => {
     setActiveIndex(index);
   };
