@@ -73,7 +73,7 @@ export default function Header1({
                   </form>
                 </div>
                 <div className="btn-box">
-                  <Link href="/">
+                  <Link href="/formulaire-evaluation">
                     <span>Appointment</span>
                   </Link>
                 </div>
