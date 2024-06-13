@@ -104,7 +104,7 @@ export default function Header2({
                 </nav>
               </div>
               <div className="btn-box">
-                <Link href="index-2" className="theme-btn btn-one">
+                <Link href="/formulaire-evaluation" className="theme-btn btn-one">
                   <span>Appointment</span>
                 </Link>
               </div>
@@ -133,7 +133,7 @@ export default function Header2({
                 </nav>
               </div>
               <div className="btn-box">
-                <Link href="index-2" className="theme-btn btn-one">
+                <Link href="/formulaire-evaluation" className="theme-btn btn-one">
                   <span>Appointment</span>
                 </Link>
               </div>

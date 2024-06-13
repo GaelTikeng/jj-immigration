@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputField from "../atoms/inputField";
-import { useEdgeStore } from "@/lib/edgestore";
-import useFileStore from "@/app/stores/fileStore";
+import { useEdgeStore } from "../../lib/edgestore";
+import useFileStore from "../../app/stores/fileStore";
 
 type Props = {
 };

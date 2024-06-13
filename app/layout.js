@@ -1,4 +1,4 @@
-import "@/node_modules/react-modal-video/css/modal-video.css";
+// import "@/node_modules/react-modal-video/css/modal-video.css";
 import "../public/assets/css/font-awesome-all.css";
 import "../public/assets/css/bootstrap.css";
 import "../public/assets/css/style.css";
@@ -8,8 +8,9 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { heebo, maven_pro } from "@/lib/font";
-import { EdgeStoreProvider } from "@/lib/edgestore";
+import { maven_pro, heebo } from "../lib/font";
+// import { EdgeStoreProvider } from "@/lib/edgestore";
+import {EdgeStoreProvider} from "../lib/edgestore"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 

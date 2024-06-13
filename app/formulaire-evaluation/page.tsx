@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import Button from "@/components/atoms/button";
-import Steps from "@/components/molecules/steps";
-import StepOne from "@/components/molecules/stepOne";
-import StepTwo from "@/components/molecules/stepTwo";
-import StepThree from "@/components/molecules/stepThree";
-import { useEdgeStore } from "@/lib/edgestore";
-import { sendEmail } from "@/utiles/sendEmail";
-import { FormData } from "@/components/domain/formData";
+import Button from "../../components/atoms/button";
+import Steps from "../../components/molecules/steps";
+import StepOne from "../../components/molecules/stepOne";
+import StepTwo from "../../components/molecules/stepTwo";
+import StepThree from "../../components/molecules/stepThree";
+import { useEdgeStore } from "../../lib/edgestore";
+import { sendEmail } from "../../utiles/sendEmail";
+import { FormData } from "../../components/domain/formData";
 import useFileStore from "../stores/fileStore";
-import Loader from "@/components/atoms/loader";
+import Loader from "../../components/atoms/loader";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Layout from "@/components/layout/Layout.js";
+import Layout from "../components/layout/Layout";
 export default function Error() {
   return (
     <>

@@ -3,7 +3,7 @@ import Select from "react-select";
 import InputField from "../atoms/inputField";
 import InputCheckBox from "../atoms/checkBox";
 import { FormData } from "../domain/formData";
-import { salutaionOptions } from "@/app/formulaire-evaluation/page";
+import { salutaionOptions } from "../../app/formulaire-evaluation/page";
 
 type Props = {};
 
