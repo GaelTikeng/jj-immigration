@@ -16,14 +16,6 @@ import { toast } from "react-toastify";
 
 type Props = {};
 
-export const salutaionOptions = [
-  { value: "Mr", label: "Mr" },
-  { value: "Ms", label: "Ms" },
-  { value: "Mrs", label: "Mrs" },
-  { value: "Miss", label: "Miss" },
-  { value: "Dr", label: "Dr" },
-];
-
 export default function FormulaireEvaluation({}: Props) {
   const { file, setFile } = useFileStore();
   const curStep = +(localStorage.getItem("currentStep") as string) || 1;

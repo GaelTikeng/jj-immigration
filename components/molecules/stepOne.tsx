@@ -3,7 +3,6 @@ import Select from "react-select";
 import InputField from "../atoms/inputField";
 import InputCheckBox from "../atoms/checkBox";
 import { FormData } from "../domain/formData";
-import { salutaionOptions } from "../../app/formulaire-evaluation/page";
 
 type Props = {};
 
@@ -36,6 +35,14 @@ export default function StepOne({}: Props) {
     name: undefined
   });
   const [coutries, setCountries] = useState([]);
+
+  const salutaionOptions = [
+    { value: "Mr", label: "Mr" },
+    { value: "Ms", label: "Ms" },
+    { value: "Mrs", label: "Mrs" },
+    { value: "Miss", label: "Miss" },
+    { value: "Dr", label: "Dr" },
+  ];
 
   const OptionsForCheckox = [
     "Immigrer au Canada",
