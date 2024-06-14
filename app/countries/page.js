@@ -1,7 +1,7 @@
 'use client'
-import CountriesSlider from '@/components/slider/CountriesSlider'
+import CountriesSlider from '../../components/slider/CountriesSlider'
 import Link from "next/link";
-import Layout from "@/components/layout/Layout"
+import Layout from "../../components/layout/Layout"
 
 import { useState } from 'react'
 export default function Home() {
