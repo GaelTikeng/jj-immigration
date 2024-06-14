@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import Layout from "@/components/layout/Layout"
+import Layout from "../../components/layout/Layout"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { useState } from 'react'
