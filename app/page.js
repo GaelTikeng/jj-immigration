@@ -23,13 +23,13 @@ export default function Home() {
         <Features />
         <Dream />
         <Countries />
-        <Coaching />
+        {/* <Coaching /> */}
         <Chooseus />
         <Team />
         <Education />
         <Passport />
-        <Clients />
-        <News />
+        {/* <Clients /> */}
+        {/* <News /> */}
       </Layout>
     </>
   );
