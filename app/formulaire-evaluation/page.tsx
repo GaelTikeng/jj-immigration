@@ -17,14 +17,14 @@ import { toast } from "react-toastify";
 type Props = {};
 
 export default function FormulaireEvaluation({}: Props) {
-  const { file, setFile } = useFileStore();
+  const { file } = useFileStore();
   const curStep = +(localStorage.getItem("currentStep") as string) || 1;
   const [currentStep, setCurrentStep] = useState<number>(curStep);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { edgestore } = useEdgeStore();
   const [isLoading, setIsLoading] = useState<Boolean>(false);
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSubmit = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -32,15 +32,37 @@ export default function FormulaireEvaluation({}: Props) {
     e.preventDefault();
     setIsLoading((prev) => !prev);
     let uploadedCv;
-    const formData: FormData = JSON.parse(
-      (localStorage.getItem("formData") as string) || "{}"
-    );
-    const salutation =
-      JSON.parse(localStorage.getItem("salutation") as string) || "{}";
-    const profession: string =
-      (localStorage.getItem("profession") as string) || "";
-    const niveauetude: string =
-      (localStorage.getItem("niveauEtude") as string) || "";
+    let formData: FormData = {
+      name: undefined,
+      nom: "",
+      prenom: "",
+      etatCivil: "",
+      dateDeNaissance: "",
+      country: "",
+      currentCountry: "",
+      email: "",
+      telephone: "",
+      detail: "",
+      programme: ""
+    }
+    let salutation: {value: string, label: string} = {
+      value: "",
+      label: ""
+    }
+    let profession: string =''
+    let niveauetude: string = ''
+
+    if (typeof window !== "undefined") {
+      formData = JSON.parse(
+        (localStorage.getItem("formData") as string) || "{}"
+      );
+      salutation =
+        JSON.parse(localStorage.getItem("salutation") as string) || "{}";
+      profession =
+        (localStorage.getItem("profession") as string) || "";
+      niveauetude =
+        (localStorage.getItem("niveauEtude") as string) || "";
+    }
 
     if (!file) {
       setErrorMessage("Veillez renseigner tout les champs svp");
@@ -54,7 +76,6 @@ export default function FormulaireEvaluation({}: Props) {
         console.log(progress);
       },
     });
-    console.log(uploadedCv);
 
     // send mail
     if (uploadedCv) {
@@ -86,20 +107,22 @@ export default function FormulaireEvaluation({}: Props) {
         .catch((err) => {
           console.log("this is error", err);
         });
-      localStorage.setItem("currentStep", "1");
       setIsLoading((prev) => !prev);
-      localStorage.removeItem('formData')
-      localStorage.removeItem('currentStep')
-      localStorage.removeItem('profession')
-      localStorage.removeItem('cvFile')
-      localStorage.removeItem('niveauEtude')
-      localStorage.removeItem('salutation')
-      router.push("/")
+      if (typeof window !== "undefined") {
+        localStorage.setItem("currentStep", "1");
+        localStorage.removeItem("formData");
+        localStorage.removeItem("currentStep");
+        localStorage.removeItem("profession");
+        localStorage.removeItem("cvFile");
+        localStorage.removeItem("niveauEtude");
+        localStorage.removeItem("salutation");
+      }
+      router.push("/");
     }
   };
 
   return (
-    <main style={{background: 'url(assets/images/shape/shape-2.png)'}}>
+    <main style={{ background: "url(assets/images/shape/shape-2.png)" }}>
       <div className=" w-[95%] md:w-[70%] mx-auto mt-8">
         <div className="flex justify-center ">
           <Image
@@ -141,7 +164,11 @@ export default function FormulaireEvaluation({}: Props) {
           <p className="flex-1"></p>
           {currentStep === 3 ? (
             <button
-              className={isLoading ? 'hover:cursor-not-allowed px-10 bg-[#25aae386] rounded text-white' : "bg-[#25a9e3] text-white py-1 px-3 active:translate-y-1 hover:cursor-pointer rounded"}
+              className={
+                isLoading
+                  ? "hover:cursor-not-allowed px-10 bg-[#25aae386] rounded text-white"
+                  : "bg-[#25a9e3] text-white py-1 px-3 active:translate-y-1 hover:cursor-pointer rounded"
+              }
               onClick={(e) => handleSubmit(e)}
             >
               {isLoading ? <Loader /> : <span>Submit</span>}
