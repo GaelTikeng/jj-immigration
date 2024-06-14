@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/atoms/button";
 import Steps from "../../components/molecules/steps";
 import StepOne from "../../components/molecules/stepOne";
@@ -26,43 +26,50 @@ export default function FormulaireEvaluation({}: Props) {
 
   const router = useRouter();
 
+  let uploadedCv;
+  let formData: FormData = {
+    name: undefined,
+    nom: "",
+    prenom: "",
+    etatCivil: "",
+    dateDeNaissance: "",
+    country: "",
+    currentCountry: "",
+    email: "",
+    telephone: "",
+    detail: "",
+    programme: "",
+  };
+  let salutation: { value: string; label: string } = {
+    value: "",
+    label: "",
+  };
+  let profession: string = "";
+  let niveauetude: string = "";
+
+  useEffect(() => {
+    formData = JSON.parse((localStorage.getItem("formData") as string) || "{}");
+    salutation =
+      JSON.parse(localStorage.getItem("salutation") as string) || "{}";
+    profession = (localStorage.getItem("profession") as string) || "";
+    niveauetude = (localStorage.getItem("niveauEtude") as string) || "";
+  }, []);
+
   const handleSubmit = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     setIsLoading((prev) => !prev);
-    let uploadedCv;
-    let formData: FormData = {
-      name: undefined,
-      nom: "",
-      prenom: "",
-      etatCivil: "",
-      dateDeNaissance: "",
-      country: "",
-      currentCountry: "",
-      email: "",
-      telephone: "",
-      detail: "",
-      programme: ""
-    }
-    let salutation: {value: string, label: string} = {
-      value: "",
-      label: ""
-    }
-    let profession: string =''
-    let niveauetude: string = ''
 
-    if (typeof window !== "undefined") {
-      formData = JSON.parse(
-        (localStorage.getItem("formData") as string) || "{}"
-      );
-      salutation =
-        JSON.parse(localStorage.getItem("salutation") as string) || "{}";
-      profession =
-        (localStorage.getItem("profession") as string) || "";
-      niveauetude =
-        (localStorage.getItem("niveauEtude") as string) || "";
-    }
+    // if (typeof window !== "undefined") {
+    //   formData = JSON.parse(
+    //     (localStorage.getItem("formData") as string) || "{}"
+    //   );
+    //   salutation =
+    //     JSON.parse(localStorage.getItem("salutation") as string) || "{}";
+    //   profession = (localStorage.getItem("profession") as string) || "";
+    //   niveauetude = (localStorage.getItem("niveauEtude") as string) || "";
+    // }
 
     if (!file) {
       setErrorMessage("Veillez renseigner tout les champs svp");
