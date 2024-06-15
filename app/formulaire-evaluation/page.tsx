@@ -18,7 +18,6 @@ type Props = {};
 
 export default function FormulaireEvaluation({}: Props) {
   const { file } = useFileStore();
-  // const curStep = +(localStorage.getItem("currentStep") as string) || 1;
   const [currentStep, setCurrentStep] = useState<number | null>(
     (): number | null => {
       if (typeof localStorage !== "undefined") {
@@ -125,7 +124,7 @@ export default function FormulaireEvaluation({}: Props) {
         });
       setIsLoading((prev) => !prev);
       if (typeof window !== "undefined") {
-        localStorage.setItem("currentStep", "1");
+        localStorage.setItem("currentStep", "1")
         localStorage.removeItem("formData");
         localStorage.removeItem("currentStep");
         localStorage.removeItem("profession");
