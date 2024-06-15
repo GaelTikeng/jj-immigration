@@ -12,3 +12,8 @@ export type FormData = {
   detail: string,
   programme: string
 }
+
+export type Salutation = {
+  value: string,
+  label: string
+}

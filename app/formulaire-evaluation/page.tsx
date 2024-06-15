@@ -8,7 +8,7 @@ import StepTwo from "../../components/molecules/stepTwo";
 import StepThree from "../../components/molecules/stepThree";
 import { useEdgeStore } from "../../lib/edgestore";
 import { sendEmail } from "../../utiles/sendEmail";
-import { FormData } from "../../components/domain/formData";
+import { FormData, Salutation } from "../../components/domain/formData";
 import useFileStore from "../stores/fileStore";
 import Loader from "../../components/atoms/loader";
 import { useRouter } from "next/navigation";
@@ -18,8 +18,17 @@ type Props = {};
 
 export default function FormulaireEvaluation({}: Props) {
   const { file } = useFileStore();
-  const curStep = +(localStorage.getItem("currentStep") as string) || 1;
-  const [currentStep, setCurrentStep] = useState<number>(curStep);
+  // const curStep = +(localStorage.getItem("currentStep") as string) || 1;
+  const [currentStep, setCurrentStep] = useState<number | null>(
+    (): number | null => {
+      if (typeof localStorage !== "undefined") {
+        const fromLocalStorage =
+          JSON.parse(localStorage.getItem("currentStep") as string) || 1;
+        if (fromLocalStorage) return fromLocalStorage;
+      }
+      return null;
+    }
+  );
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { edgestore } = useEdgeStore();
   const [isLoading, setIsLoading] = useState<Boolean>(false);
@@ -40,7 +49,7 @@ export default function FormulaireEvaluation({}: Props) {
     detail: "",
     programme: "",
   };
-  let salutation: { value: string; label: string } = {
+  let salutation: Salutation = {
     value: "",
     label: "",
   };
@@ -61,15 +70,15 @@ export default function FormulaireEvaluation({}: Props) {
     e.preventDefault();
     setIsLoading((prev) => !prev);
 
-    // if (typeof window !== "undefined") {
-    //   formData = JSON.parse(
-    //     (localStorage.getItem("formData") as string) || "{}"
-    //   );
-    //   salutation =
-    //     JSON.parse(localStorage.getItem("salutation") as string) || "{}";
-    //   profession = (localStorage.getItem("profession") as string) || "";
-    //   niveauetude = (localStorage.getItem("niveauEtude") as string) || "";
-    // }
+    if (typeof window !== "undefined") {
+      formData = JSON.parse(
+        (localStorage.getItem("formData") as string) || "{}"
+      );
+      salutation =
+        JSON.parse(localStorage.getItem("salutation") as string) || "{}";
+      profession = (localStorage.getItem("profession") as string) || "";
+      niveauetude = (localStorage.getItem("niveauEtude") as string) || "";
+    }
 
     if (!file) {
       setErrorMessage("Veillez renseigner tout les champs svp");
