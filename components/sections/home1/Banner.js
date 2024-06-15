@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import BannaCart from "../../molecules/bannaCart";
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -25,6 +26,27 @@ const swiperOptions = {
     clickable: true,
   },
 };
+
+const bannaOptions = [
+  {
+    bannaImg: "assets/images/banner/baner-img-2.jpg",
+    smallDescription:
+      "MCS has been recruiting and prepping talented professionals for over twenty years. We provide a unique value proposition to both.",
+    title: "Study In Recognized Universities!...",
+  },
+  {
+    bannaImg: "assets/images/banner/immigration-canada.jpg",
+    smallDescription:
+      "Quantum mechanics has been recruiting and prepping talented professionals for over twenty years. We provide a unique value proposition to both.",
+    title: "Work in Canada!...",
+  },
+  {
+    bannaImg: "assets/images/banner/baner-img-1.JPG",
+    smallDescription:
+      "Quantum physics  has been recruiting and prepping talented professionals for over twenty years. We provide a unique value proposition to both.",
+    title: "Immigrer au cananda",
+  },
+];
 
 export default function Banner() {
   return (
@@ -52,93 +74,16 @@ export default function Banner() {
           {...swiperOptions}
           className="banner-carousel owl-theme owl-carousel owl-dots-none"
         >
-          <SwiperSlide className="slide-item p_relative">
-            <figure className="image-layer">
-              <img src="assets/images/banner/baner-img-1.JPG" alt="" />
-            </figure>
-            <div className="auto-container">
-              <div className="content-box">
-                <div className="experience-inner">
-                  <figure className="logo-imgag">
-                    <img src="assets/images/icons/logo-1.png" alt="" />
-                  </figure>
-                  <div className="text">5 Years</div>
-                  <span>Experience</span>
-                </div>
-                <h2>
-                  Study In <span>Recognized</span> Universities!...
-                </h2>
-                <p>
-                  MCS has been recruiting and prepping talented professionals
-                  for over twenty years. We provide a unique value proposition
-                  to both.
-                </p>
-                <div className="btn-box">
-                  <Link href="/formulaire-evaluation" className="theme-btn btn-one">
-                    <span>Formulaire d'évaluation</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="slide-item p_relative">
-            <figure className="image-layer">
-              <img src="assets/images/banner/banner-img-1.png" alt="" />
-            </figure>
-            <div className="auto-container">
-              <div className="content-box">
-                <div className="experience-inner">
-                  <figure className="logo-imgag">
-                    <img src="assets/images/icons/logo-1.png" alt="" />
-                  </figure>
-                  <div className="text">5 Years</div>
-                  <span>Experience</span>
-                </div>
-                <h2>
-                  Study In <span>Recognized</span> Universities!...
-                </h2>
-                <p>
-                  MCS has been recruiting and prepping talented professionals
-                  for over twenty years. We provide a unique value proposition
-                  to both.
-                </p>
-                <div className="btn-box">
-                  <Link href="/formulaire-evaluation" className="theme-btn btn-one">
-                    <span>Formulaire d'évaluation</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="slide-item p_relative">
-            <figure className="image-layer">
-              <img src="assets/images/banner/banner-img-1.png" alt="" />
-            </figure>
-            <div className="auto-container">
-              <div className="content-box">
-                <div className="experience-inner">
-                  <figure className="logo-imgag">
-                    <img src="assets/images/icons/logo-1.png" alt="" />
-                  </figure>
-                  <div className="text">5 Years</div>
-                  <span>Experience</span>
-                </div>
-                <h2>
-                  Study In <span>Recognized</span> Universities!...
-                </h2>
-                <p>
-                  MCS has been recruiting and prepping talented professionals
-                  for over twenty years. We provide a unique value proposition
-                  to both.
-                </p>
-                <div className="btn-box">
-                  <Link href="/formulaire-evaluation" className="theme-btn btn-one">
-                    <span>Formulaire d'évaluation</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
+          {bannaOptions?.map((item, indx) => (
+            <SwiperSlide key={indx} className="slide-item p_relative">
+              <BannaCart
+                bannaImg={item.bannaImg}
+                smallDescription={item.smallDescription}
+                title={item.title}
+              />
+            </SwiperSlide>  
+          ))}
+          
         </Swiper>
         <ul className="social-links clearfix">
           <li>

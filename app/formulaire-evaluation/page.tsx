@@ -124,7 +124,7 @@ export default function FormulaireEvaluation({}: Props) {
         });
       setIsLoading((prev) => !prev);
       if (typeof window !== "undefined") {
-        localStorage.setItem("currentStep", "1")
+        localStorage.setItem("currentStep", "1");
         localStorage.removeItem("formData");
         localStorage.removeItem("currentStep");
         localStorage.removeItem("profession");
@@ -163,11 +163,7 @@ export default function FormulaireEvaluation({}: Props) {
           <StepThree />
         )}
         <div className="flex justify-between mt-6">
-          <Button
-            className={currentStep === 1 ? "hidden" : "block"}
-            content={"Précédent"}
-            bgColor={"#f61626"}
-            textColor={"#fff"}
+          <button
             onClick={() => {
               if (currentStep > 1) {
                 const curStep = currentStep - 1;
@@ -175,7 +171,14 @@ export default function FormulaireEvaluation({}: Props) {
                 setCurrentStep(curStep);
               }
             }}
-          />
+            className={
+              currentStep === 1
+                ? `py-1 px-3 active:translate-y-1 hover:cursor-pointer bg-[#f61626] text-[#fff] rounded hidden`
+                : `py-1 px-3 active:translate-y-1 hover:cursor-pointer bg-[#f61626] text-[#fff] rounded block`
+            }
+          >
+            Précédent
+          </button>
           <p className="flex-1"></p>
           {currentStep === 3 ? (
             <button
@@ -189,11 +192,7 @@ export default function FormulaireEvaluation({}: Props) {
               {isLoading ? <Loader /> : <span>Submit</span>}
             </button>
           ) : (
-            <Button
-              className={""}
-              content={"Suivant"}
-              bgColor={"#25a9e3"}
-              textColor={"#fff"}
+            <button
               onClick={() => {
                 if (currentStep < 3) {
                   let curStep = currentStep + 1;
@@ -201,7 +200,24 @@ export default function FormulaireEvaluation({}: Props) {
                   setCurrentStep(curStep);
                 }
               }}
-            />
+              className={`py-1 px-3 active:translate-y-1 hover:cursor-pointer bg-[#25a9e3] text-[#fff] rounded`}
+            >
+              Suivant
+            </button>
+
+            // <Button
+            //   className={""}
+            //   content={"Suivant"}
+            //   bgColor={"#25a9e3"}
+            //   textColor={"#fff"}
+            //   onClick={() => {
+            // if (currentStep < 3) {
+            //   let curStep = currentStep + 1;
+            //   localStorage.setItem("currentStep", JSON.stringify(curStep));
+            //   setCurrentStep(curStep);
+            //     }
+            //   }}
+            // />
           )}
         </div>
         {currentStep === 3 ? (

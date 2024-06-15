@@ -1,4 +1,3 @@
-// import VisaSlider from "/components/slider/VisaSlider";
 import VisaSlider from "../../../components/slider/VisaSlider"
 import Link from "next/link";
 import React from "react";
