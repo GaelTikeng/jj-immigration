@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/sections/home1/Banner.js"  ],
+, "components/sections/home1/Banner.js", "components/slider/VisaSlider.tsx"  ],
   "exclude": [
     "node_modules"
   ]

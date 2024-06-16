@@ -35,13 +35,13 @@ const bannaOptions = [
     title: "Study In Recognized Universities!...",
   },
   {
-    bannaImg: "assets/images/banner/immigration-canada.jpg",
+    bannaImg: "assets/images/banner/banner-img-2.jpg",
     smallDescription:
       "Quantum mechanics has been recruiting and prepping talented professionals for over twenty years. We provide a unique value proposition to both.",
     title: "Work in Canada!...",
   },
   {
-    bannaImg: "assets/images/banner/baner-img-1.JPG",
+    bannaImg: "assets/images/banner/baner-img-2.JPG",
     smallDescription:
       "Quantum physics  has been recruiting and prepping talented professionals for over twenty years. We provide a unique value proposition to both.",
     title: "Immigrer au cananda",

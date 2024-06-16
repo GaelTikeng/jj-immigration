@@ -92,7 +92,7 @@ export default function Header1({
                 </Link>
               </figure>
             </div>
-            <div className="nav-outer " style={{background: "green"}}>
+            <div className="nav-outer ">
               <div className="menu-area clearfix" >
                 {/* Mobile Navigation Toggler */}
                 <div className="mobile-nav-toggler" onClick={handleMobileMenu}>

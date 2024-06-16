@@ -42,7 +42,7 @@ export default function MobileMenu({
               <img src="/assets/images/logo-2.png" alt="" />
             </Link>
           </div>
-          <div className="menu-outer">
+          <div className="menu-outer" style={{background: 'red'}}>
             <div
               className="collapse navbar-collapse show clearfix"
               id="navbarSupportedContent"
