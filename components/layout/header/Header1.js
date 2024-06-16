@@ -92,8 +92,8 @@ export default function Header1({
                 </Link>
               </figure>
             </div>
-            <div className="nav-outer">
-              <div className="menu-area clearfix">
+            <div className="nav-outer " style={{background: "green"}}>
+              <div className="menu-area clearfix" >
                 {/* Mobile Navigation Toggler */}
                 <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
                   <i className="icon-bar"></i>
@@ -114,7 +114,7 @@ export default function Header1({
                   <img src="assets/images/resource/support-1.jpg" alt="" />
                 </figure>
                 <span>Enquiries</span>
-                <Link href="tel:188845678901">+1-888-456-78-901</Link>
+                <Link href="tel:+1-888-456-78-901">+1-888-456-78-901</Link>
               </div>
             </div>
           </div>

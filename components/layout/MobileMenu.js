@@ -414,10 +414,12 @@ export default function MobileMenu({
             <ul>
               <li>152 rue Vallières Val-d'Or (Qc) J9P 4L3</li>
               <li>
-                <Link href="tel:+8801682648101">+1 581-305-4090</Link>
+                <Link href="tel:+1 581-305-4090">+1 581-305-4090</Link>
               </li>
               <li>
-                <Link href="mailto:jjinternationalservcice@gmail.com">jjinternationalservcice@gmail.com</Link>
+                <Link href="mailto:jjinternationalservcice@gmail.com">
+                  jjinternationalservcice@gmail.com
+                </Link>
               </li>
             </ul>
           </div>
@@ -430,7 +432,10 @@ export default function MobileMenu({
                 </Link>
               </li>
               <li>
-                <Link target="_blanck" href="https://www.facebook.com/profile.php?id=61557544078696&mibextid=ZbWKwL&_rdc=2&_rdr">
+                <Link
+                  target="_blanck"
+                  href="https://www.facebook.com/profile.php?id=61557544078696&mibextid=ZbWKwL&_rdc=2&_rdr"
+                >
                   <span className="fab fa-facebook-square"></span>
                 </Link>
               </li>
