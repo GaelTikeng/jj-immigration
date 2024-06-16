@@ -4,9 +4,10 @@ import React from "react";
 type Props = {
   teamName: string;
   teamDesignation: string;
+  teamPicture: string;
 };
 
-export default function TeamBiographie({ teamName, teamDesignation }: Props) {
+export default function TeamBiographie({ teamName, teamPicture, teamDesignation }: Props) {
   return (
     <>
       <div className="col-lg-3 col-md-6 col-sm-12 team-block">
@@ -17,7 +18,7 @@ export default function TeamBiographie({ teamName, teamDesignation }: Props) {
         >
           <div className="inner-box">
             <figure className="image-box">
-              <img src="assets/images/team/team-1.jpg" alt="" />
+              <img src={teamPicture} alt="" />
             </figure>
             <div className="lower-content">
               <div className="share-box">

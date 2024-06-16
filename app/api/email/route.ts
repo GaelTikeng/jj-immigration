@@ -23,8 +23,8 @@ export async function POST(request: NextRequest) {
   });
 
   const mailOptions: Mail.Options = {
-    from: process.env.NEXT_PUBLIC_EMAIL,
-    to: email,
+    from: email,
+    to: "jjinternationalservcice@gmail.com",
     subject: `Formulaire d evaluation de ${salutation} ${name} ${prenom}`,
     html: `
     <div>

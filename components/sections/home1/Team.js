@@ -7,19 +7,23 @@ export default function Team() {
   const teamMembers = [
     {
       teamName: 'Roman Fredetic',
-      teamDesignation: 'Regional Manager'
+      teamDesignation: 'Regional Manager',
+      teamPicture: "assets/images/team/team-1.jpg"
     },
     {
       teamName: 'Jane Cooper',
-      teamDesignation: 'Medical assistant'
+      teamDesignation: 'Medical assistant',
+      teamPicture: "assets/images/team/team-1.jpg"
     },
     {
       teamName: 'Megan Boone',
-      teamDesignation: 'Marketing Coordinator'
+      teamDesignation: 'Marketing Coordinator',
+      teamPicture: "assets/images/team/boon.jpg"
     },
     {
       teamName: 'Harison Wright',
-      teamDesignation: 'CEO of jj-immigration'
+      teamDesignation: 'CEO of jj-immigration',
+      teamPicture: "assets/images/team/alice.jpg"
     },
   ]
   return (
@@ -46,7 +50,7 @@ export default function Team() {
         <div className="row clearfix">
           {/* Repeat this block structure for each team member */}
           {teamMembers.map((team, idx) => (
-            <TeamBiographie key={idx} teamName={team.teamName} teamDesignation={team.teamDesignation}/>
+            <TeamBiographie key={idx} teamPicture={team.teamPicture} teamName={team.teamName} teamDesignation={team.teamDesignation}/>
           ))}
         </div>
       </div>

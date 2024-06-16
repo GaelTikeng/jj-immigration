@@ -28,11 +28,11 @@ export default function BannaCart({
             <div className="text">5 Years</div>
             <span>Experience</span>
           </div>
-          <h2 className="w-[500px]">
+          <h2 className="md:w-[500px] w-[96%] ">
             {/* Study In <span>Recognized</span> Universities!... */}
             {title}
           </h2>
-          <p className="w-[500px]">{smallDescription}</p>
+          <p className="md:w-[500px] w-[96%]">{smallDescription}</p>
           <div className="btn-box">
             <Link href="/formulaire-evaluation" className="theme-btn btn-one">
               <span>Formulaire d'évaluation</span>

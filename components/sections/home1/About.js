@@ -1,20 +1,28 @@
-
-'use client'
+"use client";
 import Link from "next/link";
-import React from 'react';
+import React from "react";
 
 export default function about() {
   return (
     <section className="about-section p_relative">
-      <div className="pattern-layer" style={{ backgroundImage: 'url(assets/images/shape/shape-6.png)' }}></div>
+      <div
+        className="pattern-layer"
+        style={{ backgroundImage: "url(assets/images/shape/shape-6.png)" }}
+      ></div>
       <div className="auto-container">
         <div className="row align-items-center">
           <div className="col-lg-6 col-md-12 col-sm-12 image-column">
             <div className="image_block_one">
               <div className="image-box p_relative d_block">
-                <figure className="image image-1"><img src="assets/images/resource/about-1.jpg" alt="" /></figure>
-                <figure className="image image-2"><img src="assets/images/resource/about-2.jpg" alt="" /></figure>
-                <figure className="certificate-box"><img src="assets/images/icons/certificate-1.png" alt="" /></figure>
+                <figure className="image image-1">
+                  <img src="assets/images/resource/hiring.jpg" alt="" />
+                </figure>
+                <figure className="image image-2">
+                  <img src="assets/images/resource/canada-jobs.jpg" alt="" />
+                </figure>
+                <figure className="certificate-box">
+                  <img src="assets/images/icons/certificate-1.png" alt="" />
+                </figure>
               </div>
             </div>
           </div>
@@ -26,7 +34,14 @@ export default function about() {
                   <h2>We became an exam preparation authority.</h2>
                 </div>
                 <div className="text mb_30">
-                  <p>Quisque dignissim enim diam, eget pulvinar ex viverra id. Nulla a lobortis lectus, id volutpat magna. Morbi consequat porttitor fermentum. Nulla vestibulum tincidunt viverra. Vestibulum accumsan molestie lorem, non laoreet massa. Duis at dui sem. Vivamus ut gravida libero. Proin porttitor viverra aliquet.</p>
+                  <p>
+                    Quisque dignissim enim diam, eget pulvinar ex viverra id.
+                    Nulla a lobortis lectus, id volutpat magna. Morbi consequat
+                    porttitor fermentum. Nulla vestibulum tincidunt viverra.
+                    Vestibulum accumsan molestie lorem, non laoreet massa. Duis
+                    at dui sem. Vivamus ut gravida libero. Proin porttitor
+                    viverra aliquet.
+                  </p>
                 </div>
                 <div className="list-inner mb_50 p_relative">
                   <ul className="list-style-one clearfix">
@@ -41,7 +56,9 @@ export default function about() {
                   </ul>
                 </div>
                 <div className="btn-box">
-                  <Link href="about" className="theme-btn btn-one"><span>More Details</span></Link>
+                  <Link href="about" className="theme-btn btn-one">
+                    <span>More Details</span>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -50,4 +67,4 @@ export default function about() {
       </div>
     </section>
   );
-};
+}
