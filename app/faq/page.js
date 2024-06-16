@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import Layout from "@/components/layout/Layout"
+import Layout from "../../components/layout/Layout"
 import { useState } from 'react'
 export default function WhyChooseUs() {
     const [isActive, setIsActive] = useState({

@@ -26,8 +26,8 @@ export default function Header2({
                 <ul className="info clearfix">
                   <li>
                     <i className="icon-31"></i>
-                    <Link href="mailto:info@yourmail.com">
-                      info@yourmail.org
+                    <Link href="mailto:jjinternationalservcice@gmail.com">
+                    jjinternationalservcice@gmail.com
                     </Link>
                   </li>
                 </ul>
@@ -35,7 +35,7 @@ export default function Header2({
               <div className="top-right">
                 <ul className="social-links clearfix">
                   <li>
-                    <Link href="/">
+                    <Link href="https://www.facebook.com/profile.php?id=61557544078696&mibextid=ZbWKwL&_rdc=2&_rdr">
                       <i className="icon-4"></i>
                     </Link>
                   </li>
@@ -49,11 +49,11 @@ export default function Header2({
                       <i className="icon-6"></i>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/">
                       <i className="icon-7"></i>
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
                 <div className="search-form">
                   <form action="/" method="post">
@@ -104,7 +104,7 @@ export default function Header2({
                 </nav>
               </div>
               <div className="btn-box">
-                <Link href="index-2" className="theme-btn btn-one">
+                <Link href="/formulaire-evaluation" className="theme-btn btn-one">
                   <span>Appointment</span>
                 </Link>
               </div>
@@ -133,7 +133,7 @@ export default function Header2({
                 </nav>
               </div>
               <div className="btn-box">
-                <Link href="index-2" className="theme-btn btn-one">
+                <Link href="/formulaire-evaluation" className="theme-btn btn-one">
                   <span>Appointment</span>
                 </Link>
               </div>
